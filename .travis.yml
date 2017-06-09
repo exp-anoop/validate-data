@@ -4,4 +4,4 @@ node_js:
   - '6.9.2'
   - '7'
   - '8'
-script: "npm test && npm run eslint"
+script: "npm test"
