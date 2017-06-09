@@ -1,9 +1,121 @@
-var assert = require('assert');
+const should = require('should');
+const assert = require('assert');
+const _ = require('lodash');
+const validate = require('../lib/index');
+const FIELDS = ['required', 'email', 'string', 'number'];
+
 
 describe('Validate Data', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal(-1, [1,2,3].indexOf(4));
+    describe('Error Handling', function() {
+        it('should throw error #1 - without any argument', function() {
+            should(function ()  { validate();}).throw('Input data not found');
         });
+
+        it('should throw error #2 - with empty data', function() {
+            should(function ()  { validate({});}).throw('Input data not found');
+        });
+
+        it('should throw error #3 - with without rules', function() {
+            should(function ()  { validate({name: "john"});}).throw('Validation rules not found');
+        });
+
+        it('should throw error #4 - with empty rules', function() {
+            should(function ()  { validate({name: "john"}, {});}).throw('Validation rules not found');
+        });
+
+        it('should throw error #5 - with invalid rule type string', function() {
+            should(function ()  { validate({name: "john"}, "String");}).throw('Validation rules not found');
+        });
+
+        it('should throw error #6 - with invalid rule type array', function() {
+            should(function ()  { validate({name: "john"}, ["required"]);}).throw(`No valid rules found. Available rules are ${_.toString(FIELDS)}`);
+        });
+
+        it('should throw error #7 - with invalid rules', function() {
+            should(function ()  { validate({name: "john"}, {max: 'sample'});}).throw(`No valid rules found. Available rules are ${_.toString(FIELDS)}`);
+        });
+
+        it('should throw error #8 - with invalid data type string', function() {
+            should(function ()  { validate("string", {required: "name"});}).throw('Input data not found');
+        });
+    });
+
+    describe('Required', function() {
+        it('should return null when fields present - success case', function() {
+            var error = validate({name: "john"}, {required: 'name'});
+            should.equal(error, null);
+        });
+
+        it('should return array of error when field not present', function() {
+            var error = validate({firstname: "john"}, {required: 'name'});
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'required');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('name');
+        });        
+    });
+
+    describe('Email', function() {
+        it('should return null when valid email - success case', function() {
+            var error = validate({email: "test@example.com"}, {email: 'email'});
+            should.equal(error, null);
+        });
+
+        it('should return null when data without email field', function() {
+            var error = validate({name: "John"}, {email: 'email'});
+            should.equal(error, null);
+        });
+
+        it('should return array of error when invalid email', function() {
+            var error = validate({email: "john"}, {email: 'email'});
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'email');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('email');
+        });        
+    });
+
+    describe('String', function() {
+        it('should return null when valid string - success case', function() {
+            var error = validate({email: "test@example.com"}, {string: 'email'});
+            should.equal(error, null);
+        });
+
+        it('should return null when data without string field', function() {
+            var error = validate({name: "John"}, {string: 'text'});
+            should.equal(error, null);
+        });
+
+        it('should return array of error when invalid string', function() {
+            var error = validate({age: 19}, {string: 'age'});
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'string');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('age');
+        });        
+    });
+    
+    describe('Number', function() {
+        it('should return null when valid number - success case', function() {
+            var error = validate({age: 30}, {number: 'age'});
+            should.equal(error, null);
+        });
+
+        it('should return null when data with invalid number field', function() {
+            var error = validate({name: "John"}, {number: 'age'});
+            should.equal(error, null);
+        });
+
+        it('should return array of error when invalid number', function() {
+            var error = validate({email: 'test@example.com'}, {number: 'email'});
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'number');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('email');
+        });        
     });
 });

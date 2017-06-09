@@ -1,6 +1,6 @@
 {
   "name": "validate-data",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sanitize and validate data with the given set of rules.",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,13 @@
   "files": [
     "lib"
   ],
-  "keyworkds": ["data", "validation", "validator", "isempty", "isemail"],
+  "keyworkds": [
+    "data",
+    "validation",
+    "validator",
+    "isempty",
+    "isemail"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/exp-anoop/validate-data.git"
@@ -27,9 +33,10 @@
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "should": "^11.2.1"
   },
-  "dependencies": {    
+  "dependencies": {
     "lodash": "^4.17.4"
   }
 }
