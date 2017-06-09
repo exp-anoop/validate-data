@@ -4,14 +4,23 @@
   "description": "Sanitize and validate data with the given set of rules.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha ./tests/*.js"
-  },
-  "engines": {
-    "node": "6.9.2"
+    "serve": "nodemon --exec \" npm run eslint && node examples/index.js\"",
+    "test": "mocha ./tests/*.js",
+    "eslint": "./node_modules/.bin/eslint ./lib/**/*.js"
   },
   "author": "Anoop P R",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "mocha": "^3.4.2"
+  },
+  "dependencies": {    
+    "lodash": "^4.17.4",
+    "xss": "^0.3.3"
   }
 }
