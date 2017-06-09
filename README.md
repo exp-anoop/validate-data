@@ -3,40 +3,41 @@
 NodeJs backend library for validate data against the rules provided.
 
 ## Usage
-Install the library with  ``` npm install validate-data```
+Install the library with  ``` npm install validate-data ```
 
 ``` javascript
-var validate = require('validate-data');
+const express = require('express');
+const validate = require('validate-data');
 
-// Specify the rules
-var rules = {
-    required: 'firstname email password',
-    email: 'email',
-    string: 'firstname lastname email password',
-    number: 'age rank'
-}
+const app = express();
 
-var sampleData = { firstname: "James", lastname: "Bond", email: "james.bond@example.com", age: 40}
+app.get('/', (req, res) => {
+    const rules = {
+        required: "email name age",
+        email: "email",
+        string: "email name",
+        number: "age"
+    }
 
-var error = validate(sampleData, rules);    
-````
+    let error = validate(req.query, rules);
+    
+    res.send(error);
+
+});
+
+app.listen(3000, () => console.log("Up and running on 3000"));
+   
+```
 Error will be null if all the validation rules passs, otherwise will get the following error
 
 ``` javascript
-[
-    {                                                                  
-        rule: 'required',
-        errorOn: ['lastname']
-    },
-    {
-        rule: 'email',
-        errorOn: ['email']
-    },
-    {
-        rule: 'number',
-        errorOn: ['age']
-    }
-]
+[{                                              
+	"rule": "required",
+	"errorOn": ["email"]
+}, {
+	"rule": "number",
+	"errorOn": ["age"]
+}]
 ```
 
 ## Validators
@@ -47,7 +48,7 @@ Module ensure that the given data will be validated against the following strate
   - Email
 
 ## Tests
-``` yarn run test```
+``` yarn run test ```
 
 ## License
 MIT
