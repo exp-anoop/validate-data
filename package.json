@@ -11,6 +11,9 @@
   },
   "author": "Anoop P R",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
@@ -21,7 +24,6 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {    
-    "lodash": "^4.17.4",
-    "xss": "^0.3.3"
+    "lodash": "^4.17.4"
   }
 }
