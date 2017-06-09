@@ -19,10 +19,10 @@ var rules = {
 var sampleData = { firstname: "James", lastname: "Bond", email: "james.bond@example.com", age: 40}
 
 var error = validate(sampleData, rules);
-// Output
-// error will be null if all the tests passed
-// else
-/*
+````
+Error will be null if all the validation rules passs, otherwise will get the following error
+
+```
 [
     {
         rule: 'required',
@@ -37,8 +37,7 @@ var error = validate(sampleData, rules);
         errorOn: ['age']
     }
 ]
-/*
-````
+```
 
 ## Validators
 Module ensure that the given data will be validated against the following strategies.
