@@ -18,7 +18,7 @@ var rules = {
 
 var sampleData = { firstname: "James", lastname: "Bond", email: "james.bond@example.com", age: 40}
 
-var error = validate(sampleData, rules);
+var error = validate(sampleData, rules);    
 ````
 Error will be null if all the validation rules passs, otherwise will get the following error
 
