@@ -4,6 +4,7 @@
   "description": "Sanitize and validate data with the given set of rules.",
   "main": "lib/index.js",
   "scripts": {
+    "start": "node examples/index.js",
     "serve": "nodemon --exec \" npm run eslint && node examples/index.js\"",
     "test": "mocha ./tests/*.js",
     "eslint": "./node_modules/.bin/eslint ./lib/**/*.js"
