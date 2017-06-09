@@ -1,0 +1,17 @@
+{
+  "name": "validate-data",
+  "version": "0.0.1",
+  "description": "Sanitize and validate data with the given set of rules.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha ./tests/*.js"
+  },
+  "engines": {
+    "node": "6.9.2"
+  },
+  "author": "Anoop P R",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}
