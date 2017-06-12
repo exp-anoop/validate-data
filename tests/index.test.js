@@ -1,7 +1,7 @@
 const should = require('should');
 const _ = require('lodash');
 const validate = require('../lib/index');
-const FIELDS = ['required', 'email', 'string', 'number'];
+const FIELDS = ['required', 'email', 'string', 'number', 'array'];
 
 
 describe('Validate Data', function() {
@@ -112,6 +112,27 @@ describe('Validate Data', function() {
             var error = validate({email: 'test@example.com'}, {number: 'email'});
             error.should.with.lengthOf(1);
             error[0].should.have.property('rule', 'number');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('email');
+        });        
+    });
+
+    describe('Array', function() {
+        it('should return null when valid array - success case', function() {
+            var error = validate({options: [1, 2, 3]}, {array: 'options'});
+            should.equal(error, null);
+        });
+
+        it('should return null when data with invalid array field', function() {
+            var error = validate({options: [1, 2, 3]}, {array: 'age'});
+            should.equal(error, null);
+        });
+
+        it('should return array of error when invalid array', function() {
+            var error = validate({email: 'test@example.com'}, {array: 'email'});
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'array');
             error[0].should.have.property('errorOn');
             error[0]['errorOn'].should.with.lengthOf(1);
             error[0]['errorOn'][0].should.be.equal('email');
