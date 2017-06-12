@@ -56,7 +56,7 @@ Feature requests are welcome. But take a moment to find out whether your idea fi
 
 ## Tests
 ``` javascript
- yarn run test
+ npm run test
 ```
 
 ## License

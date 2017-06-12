@@ -27,11 +27,11 @@ describe('Validate Data', function() {
         });
 
         it('should throw error #6 - with invalid rule type array', function() {
-            should(function ()  { validate({name: "john"}, ["required"]);}).throw(`No valid rules found. Available rules are ${_.toString(FIELDS)}`);
+            should(function ()  { validate({name: "john"}, ["required"]);}).throw('No valid rules found. Available rules are ' + _.toString(FIELDS));
         });
 
         it('should throw error #7 - with invalid rules', function() {
-            should(function ()  { validate({name: "john"}, {max: 'sample'});}).throw(`No valid rules found. Available rules are ${_.toString(FIELDS)}`);
+            should(function ()  { validate({name: "john"}, {max: 'sample'});}).throw('No valid rules found. Available rules are ' + _.toString(FIELDS));
         });
 
         it('should throw error #8 - with invalid data type string', function() {
