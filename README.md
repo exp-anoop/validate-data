@@ -52,7 +52,7 @@ Module ensure that the given data will be validated against the following strate
 Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. Please provide as much detail and context as possible.
 
 ## Change Log
-- [Change Log] (https://raw.githubusercontent.com/exp-anoop/validate-data/master/CHANGELOG.md)
+- https://github.com/exp-anoop/validate-data/blob/master/CHANGELOG.md
 
 ## Tests
 ``` javascript
