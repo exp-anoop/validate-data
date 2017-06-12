@@ -1,6 +1,6 @@
 {
   "name": "validate-data",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sanitize and validate data with the given set of rules.",
   "main": "lib/index.js",
   "scripts": {
@@ -14,12 +14,15 @@
   "files": [
     "lib"
   ],
-  "keyworkds": [
+  "keywords": [
     "data",
     "validation",
     "validator",
     "isempty",
-    "isemail"
+    "isemail",
+    "isrequired",
+    "isstring",
+    "isnumber"
   ],
   "repository": {
     "type": "git",
@@ -28,6 +31,7 @@
   "homepage": "https://github.com/exp-anoop/validate-data",
   "devDependencies": {
     "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-node": "^5.0.0",

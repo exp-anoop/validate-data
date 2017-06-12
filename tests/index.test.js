@@ -1,5 +1,4 @@
 const should = require('should');
-const assert = require('assert');
 const _ = require('lodash');
 const validate = require('../lib/index');
 const FIELDS = ['required', 'email', 'string', 'number'];
