@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/exp-anoop/validate-data.svg?branch=master)](https://travis-ci.org/exp-anoop/validate-data) [![npm version](https://badge.fury.io/js/validate-data.svg)](https://badge.fury.io/js/validate-data) [![npm](https://img.shields.io/badge/node-%3E%3D0.12.x-brightgreen.svg)](https://github.com/exp-anoop/validate-data) [![license](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://raw.githubusercontent.com/exp-anoop/validate-data/master/LICENCE)
+[![Build Status](https://travis-ci.org/exp-anoop/validate-data.svg?branch=master)](https://travis-ci.org/exp-anoop/validate-data) [![npm version](https://badge.fury.io/js/validate-data.svg)](https://badge.fury.io/js/validate-data) [![npm](https://img.shields.io/badge/node-%3E%3D0.10-brightgreen.svg)](https://github.com/exp-anoop/validate-data) [![license](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://raw.githubusercontent.com/exp-anoop/validate-data/master/LICENCE)
 
 # Validate Data
 NodeJs backend library for validate data against the rules provided.
