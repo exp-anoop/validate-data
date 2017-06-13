@@ -6,10 +6,11 @@ var rules = {
     email: 'email',
     string: 'text email',
     number: 'age',
-    array: 'options'
+    array: 'options',
+    boolean: 'status'
 }
 
-var input = { description: "dss", email: "sdf@dsa", age: '23.90', options: [{ss: 'ddd'}] };
+var input = { description: "dss", email: "sdf@dsa", age: '23.90', status: true };
 
 var error = validate(input, rules);
 

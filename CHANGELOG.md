@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [v0.1.0] - 2017-06-13
+### Added
+- Added support for the following strategies.
+    - Array
+    - Boolean
+
 ## [v0.0.4] - 2017-06-12
 ### Added
 - Added support for older versions od nodejs. Now the package support from version 0.12.x.

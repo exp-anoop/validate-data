@@ -1,7 +1,7 @@
 const should = require('should');
 const _ = require('lodash');
 const validate = require('../lib/index');
-const FIELDS = ['required', 'email', 'string', 'number', 'array'];
+const FIELDS = ['required', 'email', 'string', 'number', 'array', 'boolean'];
 
 
 describe('Validate Data', function() {
@@ -136,6 +136,32 @@ describe('Validate Data', function() {
             error[0].should.have.property('errorOn');
             error[0]['errorOn'].should.with.lengthOf(1);
             error[0]['errorOn'][0].should.be.equal('email');
+        });        
+    });
+
+    describe('Boolean', function() {
+        it('should return null when boolean value - success case #1', function() {
+            var error = validate({status: true}, {boolean: 'status'});
+            should.equal(error, null);
+        });
+
+        it('should return null when boolean value - success case #2', function() {
+            var error = validate({status: false}, {boolean: 'status'});
+            should.equal(error, null);
+        });
+
+        it('should return null when data with invalid boolean field', function() {
+            var error = validate({status: true}, {boolean: 'age'});
+            should.equal(error, null);
+        });
+
+        it('should return array of error when invalid boolean', function() {
+            var error = validate({status: 3}, {boolean: 'status'});
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'boolean');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('status');
         });        
     });
 });
