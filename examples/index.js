@@ -10,7 +10,8 @@ var rules = {
     boolean: 'status'
 }
 
-var input = { description: "dss", email: "sdf@dsa", age: '23.90', status: true };
+var input = { email: '12/12/1986' };
+
 
 var error = validate(input, rules);
 
