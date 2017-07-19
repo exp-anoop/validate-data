@@ -40,9 +40,28 @@ describe('Validate Data', function() {
     });
 
     describe('Required', function() {
+        
         it('should return null when fields present - success case', function() {
             var error = validate({ name: "john" }, { required: 'name' });
             should.equal(error, null);
+        });
+        
+        it('should return array of error when requrired field is empty string', function() {
+            var error = validate({ firstname: "" }, { required: 'firstname' });
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'required');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('firstname');
+        });
+
+        it('should return array of error when requrired field has null value', function() {
+            var error = validate({ firstname: null }, { required: 'firstname' });
+            error.should.with.lengthOf(1);
+            error[0].should.have.property('rule', 'required');
+            error[0].should.have.property('errorOn');
+            error[0]['errorOn'].should.with.lengthOf(1);
+            error[0]['errorOn'][0].should.be.equal('firstname');
         });
 
         it('should return array of error when field not present', function() {

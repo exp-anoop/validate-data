@@ -2,15 +2,10 @@ var validate = require('../lib/index');
 
 
 var rules = {
-    required: 'email description sample',
-    email: 'email',
-    string: 'text email',
-    number: 'age',
-    array: 'options',
-    boolean: 'status'
+    required: 'email options.age'
 }
 
-var input = { email: '12/12/1986' };
+var input = { email: '12/12/1986', options: {age: 25} };
 
 
 var error = validate(input, rules);
