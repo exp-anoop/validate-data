@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [v0.1.1] - 2017-07-19
+### Fixed
+- Required rule will return error on empty / null value.
+    
 ## [v0.1.0] - 2017-06-13
 ### Added
 - Added support for the following strategies.
