@@ -1,50 +1,54 @@
 {
-    "name": "validate-data",
-    "version": "0.1.1",
-    "description": "Sanitize and validate data with the given set of rules.",
-    "main": "lib/index.js",
-    "scripts": {
-        "start": "node examples/index.js",
-        "serve": "nodemon --exec \" npm run eslint && node examples/index.js\"",
-        "test": "mocha ./tests/*.js",
-        "eslint": "./node_modules/.bin/eslint ./lib/**/*.js"
-    },
-    "author": "Anoop P R",
-    "license": "MIT",
-    "files": [
-        "lib"
-    ],
-    "keywords": [
-        "data",
-        "validation",
-        "validator",
-        "empty",
-        "email",
-        "required",
-        "string",
-        "number",
-        "array",
-        "date",
-        "boolean",
-        "object"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/exp-anoop/validate-data.git"
-    },
-    "homepage": "https://github.com/exp-anoop/validate-data",
-    "devDependencies": {
-        "eslint": "^3.19.0",
-        "eslint-config-airbnb-base": "^11.2.0",
-        "eslint-config-standard": "^10.2.1",
-        "eslint-plugin-import": "^2.3.0",
-        "eslint-plugin-node": "^5.0.0",
-        "eslint-plugin-promise": "^3.5.0",
-        "eslint-plugin-standard": "^3.0.1",
-        "mocha": "^3.4.2",
-        "should": "^11.2.1"
-    },
-    "dependencies": {
-        "lodash": "^4.17.4"
-    }
+  "name": "validate-data",
+  "version": "0.1.1",
+  "description": "Sanitize and validate data with the given set of rules.",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node examples/index.js",
+    "serve": "nodemon --exec \" npm run eslint && node examples/index.js\"",
+    "test": "mocha ./tests/*.js",
+    "eslint": "./node_modules/.bin/eslint ./lib/**/*.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "author": "Anoop P R",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "data",
+    "validation",
+    "validator",
+    "empty",
+    "email",
+    "required",
+    "string",
+    "number",
+    "array",
+    "date",
+    "boolean",
+    "object"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exp-anoop/validate-data.git"
+  },
+  "homepage": "https://github.com/exp-anoop/validate-data",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.4.2",
+    "should": "^11.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "snyk": "^1.317.0"
+  },
+  "snyk": true
 }
